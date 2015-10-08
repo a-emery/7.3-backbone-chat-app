@@ -19,3 +19,20 @@ body {
   color: $base-font-color;
   font-family: $base-font-family;
 }
+
+.postsList {
+  list-style: none;
+  margin-bottom: 100px;
+}
+
+.postListItem {
+  background: $light-gray;
+}
+
+.createView {
+  margin: 20px;
+}
+
+.createBar {
+  padding: 10px 0;
+}

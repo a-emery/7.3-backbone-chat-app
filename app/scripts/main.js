@@ -1,4 +1,6 @@
+import AppRouter from 'router';
+
 $(document).ready(function(){
-  // prepend the contents of `app/templates/application.hbs` into `body`
-  $('#container').append(JST.application());
+  window.appRouter = new AppRouter();
+  Backbone.history.start();
 });
