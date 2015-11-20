@@ -54,6 +54,37 @@ require.register('router', function (exports, require, module) {
     });
     module.exports = exports['default'];
 });
+require.register('models/BlogPosts', function (exports, require, module) {
+    'use strict';
+    Object.defineProperty(exports, '__esModule', { value: true });
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : { 'default': obj };
+    }
+    var _modelsPost = require('models/Post');
+    var _modelsPost2 = _interopRequireDefault(_modelsPost);
+    exports['default'] = Backbone.Collection.extend({
+        model: _modelsPost2['default'],
+        url: 'http://tiny-lasagna-server.herokuapp.com/collections/messagess',
+        comparator: function comparator(model) {
+            return -model.get('createdAt');
+        }
+    });
+    module.exports = exports['default'];
+});
+require.register('models/Post', function (exports, require, module) {
+    'use strict';
+    Object.defineProperty(exports, '__esModule', { value: true });
+    exports['default'] = Backbone.Model.extend({
+        defaults: function defaults() {
+            return {
+                message: '[no message]',
+                username: '[no username]',
+                createdAt: Date.now()
+            };
+        }
+    });
+    module.exports = exports['default'];
+});
 require.register('views/CollectionView', function (exports, require, module) {
     'use strict';
     Object.defineProperty(exports, '__esModule', { value: true });
@@ -189,37 +220,6 @@ require.register('views/PostsListItem', function (exports, require, module) {
         }
     });
     exports['default'] = PostsListItem;
-    module.exports = exports['default'];
-});
-require.register('models/BlogPosts', function (exports, require, module) {
-    'use strict';
-    Object.defineProperty(exports, '__esModule', { value: true });
-    function _interopRequireDefault(obj) {
-        return obj && obj.__esModule ? obj : { 'default': obj };
-    }
-    var _modelsPost = require('models/Post');
-    var _modelsPost2 = _interopRequireDefault(_modelsPost);
-    exports['default'] = Backbone.Collection.extend({
-        model: _modelsPost2['default'],
-        url: 'http://tiny-lasagna-server.herokuapp.com/collections/messagess',
-        comparator: function comparator(model) {
-            return -model.get('createdAt');
-        }
-    });
-    module.exports = exports['default'];
-});
-require.register('models/Post', function (exports, require, module) {
-    'use strict';
-    Object.defineProperty(exports, '__esModule', { value: true });
-    exports['default'] = Backbone.Model.extend({
-        defaults: function defaults() {
-            return {
-                message: '[no message]',
-                username: '[no username]',
-                createdAt: Date.now()
-            };
-        }
-    });
     module.exports = exports['default'];
 });
 //# sourceMappingURL=app.js.map
