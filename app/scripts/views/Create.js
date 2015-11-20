@@ -17,7 +17,9 @@ export default Backbone.View.extend({
 
   submitMessage: function(e){
     e.preventDefault();
-    console.log($('.js-username').name);
+    if (!window.username) {
+      window.username = prompt("Please enter a username");
+    }
     this.collection.create({
       username: window.username,
       message: $('.js-message').val()

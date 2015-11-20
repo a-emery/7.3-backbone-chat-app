@@ -19,7 +19,9 @@ var CollectionView = Backbone.View.extend({
     var view = _.findWhere(this.children, {model: model});
     var index = this.children.indexOf(view);
     this.children.splice(index, 1);
-    view.remove();
+    if (view) {
+      view.remove();
+    }
   },
 
   sortChildren: function() {

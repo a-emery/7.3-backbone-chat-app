@@ -19,12 +19,6 @@ var PostsIndexView = Backbone.View.extend({
     this.postsCollectionView = new PostsCollectionView({
       collection: this.collection
     });
-
-    // var time = setInterval(() => {
-    //   console.log(this.posts);
-    //   this.posts.fetch();
-    // }, 10000);
-
   },
 
   render: function(){
