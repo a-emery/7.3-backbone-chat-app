@@ -3,7 +3,7 @@ this["JST"]["application"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1
     return "<h1>Hello</h1>\n";
 },"useData":true});
 this["JST"]["create"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "NEW MESSAGE!!11!1!\n\n<div class=\"createBar\">\n<input type=\"text\" name=\"message\" placeholder=\"Blog Message\" value=\"\" class=\"createPostInput js-message\">\n<input type=\"submit\" value=\"submit\">\n</div>\n";
+    return "NEW MESSAGE!!11!1!\n\n<div class=\"createBar\">\n<input type=\"text\" name=\"message\" placeholder=\"Blog Message\" value=\"\" class=\"createPostInput js-message\">\n<input type=\"submit\" value=\"submit\">\n<a href=\"/\"><input type=\"button\" value=\"logout\" class=\"logout\"></a>\n</div>\n";
 },"useData":true});
 this["JST"]["createUsername"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<input type=\"text\" name=\"username\" placeholder=\"Username\" value=\"\" class=\"createPostInput js-username\">\n<input type=\"submit\" value=\"submit\" onclick=\"location.href='#index';\">\n";

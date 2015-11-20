@@ -7,7 +7,8 @@ export default Backbone.View.extend({
   className: 'createView',
 
   events: {
-    'submit': 'submitMessage'
+    'submit': 'submitMessage',
+    'click .logout': 'logout'
   },
 
   render: function(){
@@ -17,15 +18,20 @@ export default Backbone.View.extend({
 
   submitMessage: function(e){
     e.preventDefault();
-    if (!window.username) {
-      window.username = prompt("Please enter a username");
+    if (!window.localStorage.username) {
+      window.localStorage.username = prompt("Please enter a username");
     }
     this.collection.create({
-      username: window.username,
+      username: window.localStorage.username,
       message: $('.js-message').val()
     });
     $('.js-username').val('');
     $('.js-message').val('');
   },
+
+  logout: function(){
+    console.log(window.localStorage.username);
+    window.localStorage.clear();
+  }
 
 });

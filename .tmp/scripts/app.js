@@ -133,22 +133,29 @@ require.register('views/Create', function (exports, require, module) {
         template: JST.create,
         tagName: 'form',
         className: 'createView',
-        events: { 'submit': 'submitMessage' },
+        events: {
+            'submit': 'submitMessage',
+            'click .logout': 'logout'
+        },
         render: function render() {
             this.$el.html(this.template());
             return this;
         },
         submitMessage: function submitMessage(e) {
             e.preventDefault();
-            if (!window.username) {
-                window.username = prompt('Please enter a username');
+            if (!window.localStorage.username) {
+                window.localStorage.username = prompt('Please enter a username');
             }
             this.collection.create({
-                username: window.username,
+                username: window.localStorage.username,
                 message: $('.js-message').val()
             });
             $('.js-username').val('');
             $('.js-message').val('');
+        },
+        logout: function logout() {
+            console.log(window.localStorage.username);
+            window.localStorage.clear();
         }
     });
     module.exports = exports['default'];
@@ -166,7 +173,7 @@ require.register('views/CreateUsername', function (exports, require, module) {
         },
         createUsername: function createUsername(e) {
             e.preventDefault();
-            window.username = $('.js-username').val();
+            window.localStorage.username = $('.js-username').val();
         }
     });
     module.exports = exports['default'];

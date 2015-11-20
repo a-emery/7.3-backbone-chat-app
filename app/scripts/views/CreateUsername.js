@@ -15,7 +15,7 @@ export default Backbone.View.extend({
 
   createUsername: function(e){
     e.preventDefault();
-    window.username = $('.js-username').val();
+    window.localStorage.username = $('.js-username').val();
   }
 
 });
